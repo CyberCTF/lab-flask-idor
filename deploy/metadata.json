@@ -1,0 +1,46 @@
+{
+  "site": {
+    "name": "QuickDocs Portal",
+    "description": "A secure document sharing platform for business clients.",
+    "logo": "/logo.svg",
+    "copyright": "2025 QuickDocs"
+  },
+  "navigation": {
+    "main": [
+      { "link": "/", "title": "Home" },
+      { "link": "/lab", "title": "My Documents" }
+    ],
+    "auth": [
+      { "link": "/login", "title": "Sign in" },
+      { "link": "/register", "title": "Register" }
+    ]
+  },
+  "footer": {
+    "links": [
+      { "link": "/", "title": "Home" },
+      { "link": "/lab", "title": "My Documents" }
+    ],
+    "social": [
+      {
+        "name": "Website",
+        "href": "https://www.quickdocs.com",
+        "icon": "website"
+      },
+      {
+        "name": "GitHub",
+        "href": "https://github.com/quickdocs",
+        "icon": "github"
+      }
+    ]
+  },
+  "challenge": {
+    "title": "Unauthorized Document Access (IDOR)",
+    "description": "Demonstrate how insufficient access control on document downloads can lead to unauthorized data exposure.",
+    "skills": ["Flask", "Access Control", "Web Security"],
+    "points": 100
+  },
+  "cta": {
+    "label": "Access your documents",
+    "link": "/lab"
+  }
+} 

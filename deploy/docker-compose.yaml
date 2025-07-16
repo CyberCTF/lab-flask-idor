@@ -1,0 +1,32 @@
+version: '3.8'
+services:
+  db:
+    image: mysql:8.0
+    restart: unless-stopped
+    environment:
+      MYSQL_ROOT_PASSWORD: cyberlab_root_pwd
+      MYSQL_DATABASE: cyberlab
+      MYSQL_USER: cyberlab_user
+      MYSQL_PASSWORD: cyberlab_pwd
+    ports:
+      - "3306:3306"
+    volumes:
+      - db_data:/var/lib/mysql
+      - ../deploy/init.sql:/docker-entrypoint-initdb.d/init.sql:ro
+  web:
+    build:
+      context: ..
+      dockerfile: deploy/Dockerfile
+    ports:
+      - "5000:5000"
+    environment:
+      - FLASK_ENV=production
+      - DB_HOST=db
+      - DB_USER=cyberlab_user
+      - DB_PASSWORD=cyberlab_pwd
+      - DB_NAME=cyberlab
+    depends_on:
+      - db
+    restart: unless-stopped
+volumes:
+  db_data: 

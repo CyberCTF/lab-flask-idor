@@ -1,0 +1,27 @@
+{% extends "base.html" %}
+{% block content %}
+<div class="flex items-center justify-center min-h-[60vh]">
+    <form method="post" class="bg-gray-900 bg-opacity-80 p-8 rounded-xl shadow-2xl w-full max-w-md border border-gray-800">
+        <h2 class="text-2xl font-bold mb-6 text-white text-center">Create your account</h2>
+        {% with messages = get_flashed_messages(with_categories=true) %}
+        {% if messages %}
+            <ul class="mb-4">
+            {% for category, message in messages %}
+                <li class="text-red-400 text-sm">{{ message }}</li>
+            {% endfor %}
+            </ul>
+        {% endif %}
+        {% endwith %}
+        <div class="mb-4">
+            <label for="username" class="block text-gray-300 mb-1">Username</label>
+            <input type="text" name="username" id="username" required autofocus class="w-full px-4 py-2 rounded bg-gray-800 text-white border border-gray-700 focus:outline-none focus:ring-2 focus:ring-blue-600" autocomplete="username">
+        </div>
+        <div class="mb-6">
+            <label for="password" class="block text-gray-300 mb-1">Password</label>
+            <input type="password" name="password" id="password" required class="w-full px-4 py-2 rounded bg-gray-800 text-white border border-gray-700 focus:outline-none focus:ring-2 focus:ring-blue-600" autocomplete="new-password">
+        </div>
+        <button type="submit" class="w-full btn-primary py-2 rounded text-white font-semibold text-lg">Register</button>
+        <p class="mt-4 text-gray-400 text-sm text-center">Already have an account? <a href="{{ url_for('login') }}" class="text-blue-400 hover:underline">Sign in</a></p>
+    </form>
+</div>
+{% endblock %} 
